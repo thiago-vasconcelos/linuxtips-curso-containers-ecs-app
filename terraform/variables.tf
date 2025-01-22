@@ -15,9 +15,11 @@ variable "service_healthcheck" {}
 variable "service_launch_type" {
   type = list(object({
     capacity_provider = string
-    weight = number
+    weight            = number
   }))
 }
+
+variable "container_image" {}
 
 
 variable "service_hosts" {}
