@@ -82,7 +82,6 @@ set -e
 echo "BUILD - DOCKER BUILD"
 
 docker build -t app .
-
 docker tag app:latest $AWS_ACCOUNT.dkr.ecr.us-east-1.amazonaws.com/$REPOSITORY_NAME:$GIT_COMMIT_HASH
 
 # PUBLISH APP
