@@ -1,5 +1,5 @@
 module "service" {
-  source = "github.com/thiago-vasconcelos/linuxtips-curso-containers-ecs-service-module?ref=v1.1.0"
+  source = "github.com/thiago-vasconcelos/linuxtips-curso-containers-ecs-service-module?ref=v1.2.1"
 
   region                      = var.region
   cluster_name                = var.cluster_name
@@ -16,6 +16,17 @@ module "service" {
   service_hosts               = var.service_hosts
 
   container_image = var.container_image
+
+  secrets = [
+    {
+      name      = "VARIAVEL_COM_VALOR_DO_SSM"
+      valueFrom = aws_ssm_parameter.test.arn
+    },
+    {
+      name      = "VARIAVEL_COM_VALOR_DO_SECRETS_MANAGER"
+      valueFrom = aws_secretsmanager_secret.test.arn
+    }
+  ]
 
   capabilities = var.capabilities
 
