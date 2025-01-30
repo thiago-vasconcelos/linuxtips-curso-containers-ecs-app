@@ -21,6 +21,10 @@ module "service" {
     {
       name      = "VARIAVEL_COM_VALOR_DO_SSM"
       valueFrom = aws_ssm_parameter.test.arn
+    },
+    {
+      name      = "VARIAVEL_COM_VALOR_DO_SECRETS_MANAGER"
+      valueFrom = aws_secretsmanager_secret.test.arn
     }
   ]
 
