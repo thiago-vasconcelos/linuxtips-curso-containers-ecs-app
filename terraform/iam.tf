@@ -32,8 +32,6 @@ resource "aws_iam_role_policy" "ecs_task_execution_policy" {
           "ecr:BatchCheckLayerAvailability",
           "ecr:GetDownloadUrlForLayer",
           "ecr:BatchGetImage",
-          "s3:GetObject",
-          "sqs:*",
         ],
         Resource = "*",
         Effect   = "Allow"
